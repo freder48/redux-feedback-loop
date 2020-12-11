@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux'; 
 
 
 class Feelings extends Component {
 
-  goToUnderstanding = () => {
-    this.props.history.push('/understanding');
+  state = {
+    feedback: {
+      feelings: ''
+    }
+    
   }
+
+  goToUnderstanding = () => {
+    this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.feelings} ) 
+    this.props.history.push('/understanding')
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      feelings: event.target.value
+    })
+  }
+
 
   render() {
     return (
@@ -17,7 +33,7 @@ class Feelings extends Component {
 
        <section>
          <label>Feeling?</label>
-         <input type="number" min="1" max="5" required/>
+         <input onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
          <button onClick={this.goToUnderstanding}>Next</button>
        </section>
 
@@ -26,5 +42,4 @@ class Feelings extends Component {
     );
   }
 }
-
-export default withRouter(Feelings);
+export default connect()(withRouter(Feelings));

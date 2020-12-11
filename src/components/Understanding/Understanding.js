@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux'; 
 
 
 class Understanding extends Component {
 
+  state = {
+    feedback: {
+      understanding: ''
+    }
+  }
+
   goToSupport = () => {
+    this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.understanding} ) 
     this.props.history.push('/support');
   }
+
+  handleChange = (event) => {
+    this.setState({
+      understanding: event.target.value
+    })
+  }
+
 
   render() {
     return (
@@ -17,7 +32,7 @@ class Understanding extends Component {
 
        <section>
          <label>Understanding?</label>
-         <input type="number" min="1" max="5" required/>
+         <input onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
          <button onClick={this.goToSupport}>Next</button>
        </section>
 
@@ -27,4 +42,4 @@ class Understanding extends Component {
   }
 }
 
-export default withRouter(Understanding);
+export default connect()(withRouter(Understanding));

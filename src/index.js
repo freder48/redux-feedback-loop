@@ -9,11 +9,13 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+
 
 const feedbackReducer = (state=[], action) => {
-    
+    if (action.type === 'GET_FEEDBACK') {
+        return [...state, action.payload]
+    }
+    return state;
 }
 
 
@@ -21,7 +23,7 @@ const feedbackReducer = (state=[], action) => {
 // The store is the big JavaScript Object that holds all of the information for our application
 const storeInstance = createStore(
     combineReducers({
-  
+        feedbackReducer,
     }),
     applyMiddleware(logger),
 );
@@ -29,3 +31,4 @@ const storeInstance = createStore(
 // Wrap our App in a Provider, this makes Redux available in
 // our entire application
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));
+registerServiceWorker();
