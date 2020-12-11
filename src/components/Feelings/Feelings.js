@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 class Feelings extends Component {
 
   goToUnderstanding = () => {
-    
+    this.props.history.push('/understanding');
   }
 
   render() {
@@ -17,7 +17,7 @@ class Feelings extends Component {
 
        <section>
          <label>Feeling?</label>
-         <input type="number" min="1" max="5"/>
+         <input type="number" min="1" max="5" required/>
          <button onClick={this.goToUnderstanding}>Next</button>
        </section>
 
