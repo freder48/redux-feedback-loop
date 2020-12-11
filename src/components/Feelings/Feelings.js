@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux'; 
-
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class Feelings extends Component {
 
@@ -22,20 +23,22 @@ class Feelings extends Component {
       feelings: event.target.value
     })
   }
-
+  
 
   render() {
+
     return (
       <div className="Feelings">
        <header>
          <h1>How are you feeling today?</h1>
        </header>
 
-       <section>
-         <label>Feeling?</label>
-         <input onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
-         <button onClick={this.goToUnderstanding}>Next</button>
-       </section>
+       <form>
+         <TextField id="standard-basic" label="Feeling?" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
+
+         <br/>
+         <Button onClick={this.goToUnderstanding}>Next</Button>
+       </form>
 
 
       </div>

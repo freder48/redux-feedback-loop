@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux'; 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
   state = {
@@ -28,11 +30,11 @@ class Comments extends Component {
          <h1>What comments do you have?</h1>
        </header>
 
-       <section>
-         <label>Comments</label>
-         <input onChange={(event) => this.handleChange(event)} type="text"/>
-         <button onClick={this.goToReview}>Next</button>
-       </section>
+       <form>
+         <TextField id="standard-basic" label="Comments" onChange={(event) => this.handleChange(event)} type="text" />
+         <br/>
+         <Button onClick={this.goToReview}>Next</Button>
+       </form>
 
 
       </div>

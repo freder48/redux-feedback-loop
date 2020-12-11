@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux'; 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class Support extends Component {
 
@@ -28,11 +30,11 @@ class Support extends Component {
          <h1>How well are you being supported?</h1>
        </header>
 
-       <section>
-         <label>Support?</label>
-         <input onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
-         <button onClick={this.goToComments}>Next</button>
-       </section>
+       <form>
+         <TextField id="standard-basic" label="Supported" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required />
+         <br/>
+         <Button onClick={this.goToComments}>Next</Button>
+       </form>
 
 
       </div>
