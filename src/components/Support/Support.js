@@ -41,27 +41,28 @@ class Support extends Component {
   render() {
     return (
       <div className="support">
-        <Card>
+        <Card className="cardSize">
           <CardActionArea>
             <CardMedia
               component="img"
-              alt="Contemplative Reptile"
+              alt="Cartoon People Holding Hands"
               height="140"
-              image="../../images/goat_small.jpg"
-              title="Contemplative Reptile"
+              image="../../images/holdinghands.jpg"
+              title="Cartoon People Holding Hands"
             />
 
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                How well are you being supported?
+            <Typography gutterBottom variant="h5" component="h2">
+               How well are you understanding the content?
             </Typography>
 
-              <TextField id="standard-basic" label="Supported" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required />
+              <TextField className="inputSize" id="standard-basic" label="Supported" onChange={(event) => this.handleChange(event)} 
+              type="number" inputProps={{ min: "1", max: "5"}} required />
 
             </CardContent>
 
           </CardActionArea>
-          <CardActions>
+          <CardActions className="centerBtn">
             <Button size="small" color="primary" onClick={this.goBackToUnderstanding}>
               Back
             </Button>

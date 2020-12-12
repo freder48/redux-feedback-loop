@@ -30,14 +30,14 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-       <Card>
+       <Card className="cardSize">
           <CardActionArea>
             <CardMedia
               component="img"
-              alt="Contemplative Reptile"
+              alt="Floating Speech Outlines"
               height="140"
-              image="../../images/goat_small.jpg"
-              title="Contemplative Reptile"
+              image="../../images/comments.jpg"
+              title="Floating Speech Outlines"
             />
 
             <CardContent>
@@ -50,7 +50,7 @@ class Comments extends Component {
             </CardContent>
 
           </CardActionArea>
-          <CardActions>
+          <CardActions className="centerBtn">
             <Button size="small" color="primary">
               Back
             </Button>

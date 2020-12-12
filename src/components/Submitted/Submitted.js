@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -13,37 +13,37 @@ import Typography from '@material-ui/core/Typography';
 class Submitted extends Component {
 
   goToStart = () => {
-    this.props.dispatch( { type: 'RESET_FEEDBACK', payload: this.state} ) 
+    this.props.dispatch({ type: 'RESET_FEEDBACK', payload: this.state })
     this.props.history.push('/')
   }
 
   render() {
     return (
-      <Card>
-<CardActionArea>
-  <CardMedia
-    component="img"
-    alt="Contemplative Reptile"
-    height="140"
-    image="../../images/goat_small.jpg"
-    title="Contemplative Reptile"
-  />
+      <Card className="cardSize">
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            alt="Thank You in Different Languages"
+            height="140"
+            image="../../images/thanks.jpg"
+            title="Thank You Languages"
+          />
 
-  <CardContent>
-    <Typography gutterBottom variant="h5" component="h2">
-      Thank You for Your Feedback!
-  </Typography>
-  
-  </CardContent>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2" className="thankYou">
+              Thank You for Your Feedback!
+            </Typography>
 
-</CardActionArea>
-<CardActions>
+          </CardContent>
 
-  <Button size="small" color="primary" onClick={this.goToStart}>
-   Leave New Feedback
- </Button>
-</CardActions>
-</Card>
+        </CardActionArea>
+        <CardActions className="centerBtn feedbackBtn">
+
+          <Button size="small" color="primary" onClick={this.goToStart}>
+            Leave New Feedback
+        </Button>
+        </CardActions>
+      </Card>
     );
   }
 }

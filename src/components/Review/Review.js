@@ -41,14 +41,14 @@ class Review extends Component {
     
     return (
       <div className="Review">
-  <Card>
+  <Card className="cardSize">
 <CardActionArea>
   <CardMedia
     component="img"
-    alt="Contemplative Reptile"
+    alt="Colorful Checkmark Banner"
     height="140"
-    image="../../images/goat_small.jpg"
-    title="Contemplative Reptile"
+    image="../../images/checkmark.jpg"
+    title="Colorful Checkmark Banner"
   />
 
   <CardContent>
@@ -63,7 +63,7 @@ class Review extends Component {
   </CardContent>
 
 </CardActionArea>
-<CardActions>
+<CardActions className="centerBtn">
 
   <Button size="small" color="primary" onClick={this.goToSubmitted}>
    Submit

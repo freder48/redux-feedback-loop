@@ -41,30 +41,30 @@ class Feelings extends Component {
 
     return (
     <div>
-<Card>
+<Card className="cardSize">
 <CardActionArea>
   <CardMedia
     component="img"
-    alt="Contemplative Reptile"
+    alt="emoji"
     height="140"
-    image="../../images/goat_small.jpg"
-    title="Contemplative Reptile"
+    image="../../images/emoji.png"
+    title="emoji"
   />
   
   <CardContent>
     <Typography gutterBottom variant="h5" component="h2">
-      How are you feeling today?
+      How are you feeling today on a scale of 1-5?
     </Typography>
    
-    <TextField id="standard-basic" label="Feeling?" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
+    <TextField className="inputSize"
+    id="standard-basic" label="Feeling?" onChange={(event) => this.handleChange(event)} 
+    type="number" inputProps={{ min: "1", max: "5"}}required/>
     
   </CardContent>
 
 </CardActionArea>
-<CardActions>
-<Button size="small" color="primary">
-    Back
-  </Button>
+<CardActions className="centerBtn">
+
   <Button size="small" color="primary" onClick={this.goToUnderstanding}>
     Next
   </Button>

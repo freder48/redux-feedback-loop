@@ -9,6 +9,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import '../App/App.css'
 
 class Understanding extends Component {
 
@@ -41,25 +42,15 @@ class Understanding extends Component {
   render() {
     return (
       <div className="understandings">
-       {/* <header>
-         <h1>How well are you understanding the content?</h1>
-       </header>
-
-       <form className="form">
-         <TextField id="standard-basic" label="Understanding" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
-         <br/>
-         <Button onClick={this.goBackToFeelings}>Back</Button>
-         <Button onClick={this.goToSupport}>Next</Button>
-         
-       </form> */}
-<Card>
+ 
+<Card className="cardSize">
 <CardActionArea>
   <CardMedia
     component="img"
-    alt="Contemplative Reptile"
+    alt="Cartoon People Thinking"
     height="140"
-    image="../../images/goat_small.jpg"
-    title="Contemplative Reptile"
+    image="../../images/brain.png"
+    title="Cartoon People Thinking"
   />
   
   <CardContent>
@@ -67,12 +58,14 @@ class Understanding extends Component {
       How well are you understanding the content?
     </Typography>
    
-    <TextField id="standard-basic" label="Understanding" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
+    <TextField className="inputSize"id="standard-basic" label="Understanding" 
+    onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required 
+    inputProps={{ min: "1", max: "5"}}/>
     
   </CardContent>
 
 </CardActionArea>
-<CardActions>
+<CardActions className="centerBtn">
   <Button size="small" color="primary" onClick={this.goBackToFeelings}>
     Back
   </Button>

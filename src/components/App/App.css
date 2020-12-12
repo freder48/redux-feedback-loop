@@ -3,21 +3,58 @@
 }
 
 .App-header {
-  background-color: #033076;
+  background-color:#000d33;
   min-height: 70px;
   padding: 20px;
   color: white;
+  border-bottom: 5px dotted white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .App-intro {
   font-size: large;
 }
 
-html {
-  height: 100%;
+.cardSize {
+  margin: auto;
+  width: 60%;
+  height: 60vh;
+  margin-top: 4em;
 }
 
+.centerBtn {
+  justify-content: center;
+  margin: auto;
+  
+}
+
+.startFeedback {
+text-decoration: none;
+font-size: 1.6rem;
+line-height: 1.6rem;
+border-style: dotted;
+color: #000099;
+padding: .5em;
+
+}
+
+.startFeedback:hover {
+  color: purple;
+}
+.startFeedback:active {
+  color: teal;
+}
+
+
+.thankYou {
+  margin-top: 0;
+  border: 3px solid black;
+  padding: .5em;
+}
+
+.inputSize {
+  width: 30%;
+}
