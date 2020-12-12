@@ -18,11 +18,11 @@ class Understanding extends Component {
   }
 
   goToSupport = () => {
-    if (this.state.understanding === ''){
+    if (this.state.understanding === '' || this.state.understanding < 1 || this.state.understanding > 5){
       alert('Please enter a number between 1-5');
       return 'No understandings entered';
     } else {
-    this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.understanding} ) 
+    this.props.dispatch( { type: 'GET_UNDERSTANDING', payload: this.state.understanding} ) 
     this.props.history.push('/support');
   }
 }
@@ -35,7 +35,7 @@ class Understanding extends Component {
 
   goBackToFeelings = () => {
     this.props.history.push('/feelings');
-    this.props.dispatch( { type: 'EDIT_FEEDBACK0', payload: this.state.understanding} ) 
+
   }
 
 

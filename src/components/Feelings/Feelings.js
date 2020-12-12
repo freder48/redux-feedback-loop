@@ -20,14 +20,13 @@ class Feelings extends Component {
 
   goToUnderstanding = () => {
    
-    if (this.state.feelings === ''){
+    if (this.state.feelings === '' || this.state.feelings < 1 || this.state.feelings > 5){
       alert('Please enter a number between 1-5');
       return 'No feelings entered';
     } else {
-      this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.feelings} ) 
+      this.props.dispatch( { type: 'GET_FEELINGS', payload: this.state.feelings} ) 
       this.props.history.push('/understanding')
     }
-   
   }
 
   handleChange = (event) => {

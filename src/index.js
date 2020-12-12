@@ -11,22 +11,59 @@ import { Provider } from 'react-redux';
 
 
 
-const feedbackReducer = (state=[], action) => {
-    if (action.type === 'GET_FEEDBACK') {
-        return [...state, action.payload]
+// const feedbackReducer = (state=[], action) => {
+//     if (action.type === 'GET_FEEDBACK') {
+//         return [...state, action.payload]
+//     } else if (action.type === 'RESET_FEEDBACK') {
+//         return state = [];
+//     }
+//     return state;
+// }
+
+const feelingsReducer = (state=[], action) => {
+    if (action.type === 'GET_FEELINGS') {
+        return action.payload
     } else if (action.type === 'RESET_FEEDBACK') {
         return state = [];
     }
     return state;
 }
 
+const understandingReducer = (state=[], action) => {
+    if (action.type === 'GET_UNDERSTANDING') {
+        return action.payload
+    } else if (action.type === 'RESET_FEEDBACK') {
+        return state = [];
+    }
+    return state;
+}
 
-
+const supportReducer = (state=[], action) => {
+    if (action.type === 'GET_SUPPORT') {
+        return action.payload
+    } else if (action.type === 'RESET_FEEDBACK') {
+        return state = [];
+    }
+    return state;
+}
+const commentsReducer = (state=[], action) => {
+    if (action.type === 'GET_COMMENTS') {
+        return action.payload
+    } else if (action.type === 'RESET_FEEDBACK') {
+        return state = [];
+    }
+    return state;
+}
 
 // The store is the big JavaScript Object that holds all of the information for our application
 const storeInstance = createStore(
     combineReducers({
-        feedbackReducer,
+        // feedbackReducer,
+        feelingsReducer,
+        understandingReducer,
+        supportReducer, 
+        commentsReducer
+
     }),
     applyMiddleware(logger),
 );

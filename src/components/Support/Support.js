@@ -18,11 +18,11 @@ class Support extends Component {
   }
 
   goToComments = () => {
-    if (this.state.support === '') {
+    if (this.state.support === '' || (this.state.support < 1 || this.state.support > 5)) {
       alert('Please enter a number between 1-5');
       return 'No support entered';
     } else {
-      this.props.dispatch({ type: 'GET_FEEDBACK', payload: this.state.support })
+      this.props.dispatch({ type: 'GET_SUPPORT', payload: this.state.support })
       this.props.history.push('/comments');
     }
   }
@@ -34,7 +34,6 @@ class Support extends Component {
   }
 
   goBackToUnderstanding = () => {
-    this.props.dispatch({ type: 'GET_FEEDBACK1', payload: this.state.support })
     this.props.history.push('/understanding');
   }
 

@@ -16,7 +16,7 @@ class Comments extends Component {
   }
 
   goToReview = () => {
-    this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.comments} ) 
+    this.props.dispatch( { type: 'GET_COMMENTS', payload: this.state.comments} ) 
     this.props.history.push('/review');
   }
 
@@ -24,6 +24,10 @@ class Comments extends Component {
     this.setState({
       comments: event.target.value
     })
+  }
+
+  goBackToSupport = () => {
+    this.props.history.push('/support');
   }
 
 
@@ -51,7 +55,7 @@ class Comments extends Component {
 
           </CardActionArea>
           <CardActions className="centerBtn">
-            <Button size="small" color="primary">
+            <Button onClick={this.goBackToSupport} size="small" color="primary">
               Back
             </Button>
             <Button size="small" color="primary" onClick={this.goToReview}>

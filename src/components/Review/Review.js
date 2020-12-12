@@ -11,15 +11,14 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 class Review extends Component {
-
+ 
   state = {
-    feeling: this.props.reduxState.feedbackReducer[0],
-    understanding: this.props.reduxState.feedbackReducer[1],
-    support: this.props.reduxState.feedbackReducer[2],
-    comments: this.props.reduxState.feedbackReducer[3],
+    feeling: this.props.reduxState.feelingsReducer,
+    understanding: this.props.reduxState.understandingReducer,
+    support: this.props.reduxState.supportReducer,
+    comments: this.props.reduxState.commentsReducer,
   }
 
-  
   goToSubmitted = () => {
       console.log(`Adding feedback`, this.state);
       // TODO - axios request to server to add book
@@ -31,12 +30,11 @@ class Review extends Component {
 
        this.props.history.push('/submitted');
 
-
   }
 
 
   render() {
-    const feedback = this.props.reduxState.feedbackReducer;
+    const feedback = this.props.reduxState
     console.log(this.props.reduxState);
     
     return (
@@ -55,10 +53,10 @@ class Review extends Component {
     <Typography gutterBottom variant="h5" component="h2">
       Review Your Feedback
   </Typography>
-         <p>Feelings: {feedback[0]}</p>
-         <p>Understanding: {feedback[1]}</p>
-         <p>Support: {feedback[2]}</p>
-         <p>Comments: {feedback[3]}</p>
+         <p>Feelings: {feedback.feelingsReducer}</p>
+         <p>Understanding: {feedback.understandingReducer}</p>
+         <p>Support: {feedback.supportReducer}</p>
+         <p>Comments: {feedback.commentsReducer}</p>
   
   </CardContent>
 
