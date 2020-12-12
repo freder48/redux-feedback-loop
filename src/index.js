@@ -22,6 +22,7 @@ const feedbackReducer = (state=[], action) => {
 
 
 
+
 // The store is the big JavaScript Object that holds all of the information for our application
 const storeInstance = createStore(
     combineReducers({

@@ -3,6 +3,13 @@ import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux'; 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+
 
 class Feelings extends Component {
 
@@ -33,21 +40,42 @@ class Feelings extends Component {
   render() {
 
     return (
-      <div className="Feelings">
-       <header>
-         <h1>How are you feeling today?</h1>
-       </header>
+    <div>
+<Card>
+<CardActionArea>
+  <CardMedia
+    component="img"
+    alt="Contemplative Reptile"
+    height="140"
+    image="../../images/goat_small.jpg"
+    title="Contemplative Reptile"
+  />
+  
+  <CardContent>
+    <Typography gutterBottom variant="h5" component="h2">
+      How are you feeling today?
+    </Typography>
+   
+    <TextField id="standard-basic" label="Feeling?" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
+    
+  </CardContent>
 
-       <form className="form">
-         <TextField id="standard-basic" label="Feeling?" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
+</CardActionArea>
+<CardActions>
+<Button size="small" color="primary">
+    Back
+  </Button>
+  <Button size="small" color="primary" onClick={this.goToUnderstanding}>
+    Next
+  </Button>
+</CardActions>
+</Card>
 
-         <br/>
-         <Button onClick={this.goToUnderstanding}>Next</Button>
-       </form>
-
-
-      </div>
+    </div>
     );
   }
 }
+
+
+
 export default connect()(withRouter(Feelings));

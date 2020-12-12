@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+
 
 class Submitted extends Component {
 
@@ -12,15 +19,31 @@ class Submitted extends Component {
 
   render() {
     return (
-      <div className="Submitted">
-       <header>
-         <h1>Thank You for Your Feedback!</h1>
-       </header>
+      <Card>
+<CardActionArea>
+  <CardMedia
+    component="img"
+    alt="Contemplative Reptile"
+    height="140"
+    image="../../images/goat_small.jpg"
+    title="Contemplative Reptile"
+  />
 
-       <section>
-         <Button onClick={this.goToStart}>Leave New Feedback</Button>
-       </section>
-      </div>
+  <CardContent>
+    <Typography gutterBottom variant="h5" component="h2">
+      Thank You for Your Feedback!
+  </Typography>
+  
+  </CardContent>
+
+</CardActionArea>
+<CardActions>
+
+  <Button size="small" color="primary" onClick={this.goToStart}>
+   Leave New Feedback
+ </Button>
+</CardActions>
+</Card>
     );
   }
 }

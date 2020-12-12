@@ -3,6 +3,12 @@ import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
 class Review extends Component {
 
@@ -35,17 +41,36 @@ class Review extends Component {
     
     return (
       <div className="Review">
-       <header>
-         <h1>Review Your Feedback</h1>
-       </header>
+  <Card>
+<CardActionArea>
+  <CardMedia
+    component="img"
+    alt="Contemplative Reptile"
+    height="140"
+    image="../../images/goat_small.jpg"
+    title="Contemplative Reptile"
+  />
 
-       <section>
+  <CardContent>
+    <Typography gutterBottom variant="h5" component="h2">
+      Review Your Feedback
+  </Typography>
          <p>Feelings: {feedback[0]}</p>
          <p>Understanding: {feedback[1]}</p>
          <p>Support: {feedback[2]}</p>
          <p>Comments: {feedback[3]}</p>
-         <Button onClick={this.goToSubmitted}>Submit</Button>
-       </section>
+  
+  </CardContent>
+
+</CardActionArea>
+<CardActions>
+
+  <Button size="small" color="primary" onClick={this.goToSubmitted}>
+   Submit
+ </Button>
+</CardActions>
+</Card>
+
       </div>
     );
   }
@@ -59,5 +84,4 @@ const putReduxStateOnProps = (reduxState) => ({
 //export
 
 export default withRouter(connect(putReduxStateOnProps)(Review));
-
 
