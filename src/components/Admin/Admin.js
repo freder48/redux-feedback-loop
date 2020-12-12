@@ -1,5 +1,4 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,80 +7,52 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
+import { withRouter } from 'react-router-dom';
+
+class Admin extends Component {
 
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 700,
-  },
-  row: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.background.default,
-    },
-  },
-});
 
-const CustomTableCell = withStyles(theme => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
-
-function Admin(props) {
-  const { classes } = props;
-  return (
-    <>
-      <h2>Feedback Results</h2>
-      <Paper className={classes.root}>
-        <Table className={classes.table}>
-          <TableHead>
-            <TableRow>
-              <CustomTableCell>Feeling</CustomTableCell>
-              <CustomTableCell>Understanding</CustomTableCell>
-              <CustomTableCell>Support</CustomTableCell>
-              <CustomTableCell>Comments</CustomTableCell>
-              <CustomTableCell>Delete</CustomTableCell>
-            </TableRow>
-          </TableHead>
-          {/* <TableBody>
-            {props.list.map(item =>
-              <TableRow className={classes.row} key={item.id}>
-                <CustomTableCell component="th" scope="row">
-                  {item.name}
-                </CustomTableCell>
-                <CustomTableCell align="right">{item.quantity} {item.measure}</CustomTableCell>
-                <CustomTableCell>
-                  <Button variant="outlined" href="#outlined-buttons" className={classes.button}
-                    onClick={() => props.editItem(item)}>
-                    <EditIcon className={classes.leftIcon} />
-                  Edit</Button>
-                  <Button
-                    variant="outlined" href="#outlined-buttons"
-                    className={classes.button}
-                    onClick={() => props.deleteItem(item.id)}>
-                    <DeleteIcon className={classes.leftIcon} />
-                  Delete</Button>
-                </CustomTableCell>
+  render() {
+    return (
+      <>
+        <Paper>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Feelings</TableCell>
+                <TableCell>Understanding</TableCell>
+                <TableCell>Support</TableCell>
+                <TableCell>Comments</TableCell>
+                <TableCell>Delete</TableCell>
               </TableRow>
-            )}
-          </TableBody> */}
-        </Table>
-      </Paper>
+            </TableHead>
+            <TableBody>
 
-    </>
-  );
+              {
+                this.props.feedbackHistory.map((feedback) =>
+                  <TableRow key={feedback.id}>
+                    <TableCell>{feedback.feeling}</TableCell>
+                    <TableCell>{feedback.understanding}</TableCell>
+                    <TableCell>{feedback.support}</TableCell>
+                    <TableCell>{feedback.comments}</TableCell>
+                    <TableCell><Button variant="outlined" href="#outlined-buttons">
+                    <DeleteIcon/>
+                    </Button>
+                    </TableCell>
+
+
+                  </TableRow>
+                )
+              }
+
+            </TableBody>
+          </Table>
+        </Paper>
+
+      </>
+    );
+  }
 }
 
-export default withStyles(styles)(Admin);
-
+export default withRouter(Admin);
