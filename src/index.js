@@ -14,6 +14,8 @@ import { Provider } from 'react-redux';
 const feedbackReducer = (state=[], action) => {
     if (action.type === 'GET_FEEDBACK') {
         return [...state, action.payload]
+    } else if (action.type === 'RESET_FEEDBACK') {
+        return state = [];
     }
     return state;
 }

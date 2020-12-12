@@ -7,15 +7,18 @@ import Button from '@material-ui/core/Button';
 class Understanding extends Component {
 
   state = {
-    feedback: {
-      understanding: ''
-    }
+   understanding: ''
   }
 
   goToSupport = () => {
+    if (this.state.understanding === ''){
+      alert('Please enter a number between 1-5');
+      return 'No understandings entered';
+    } else {
     this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.understanding} ) 
     this.props.history.push('/support');
   }
+}
 
   handleChange = (event) => {
     this.setState({
@@ -31,7 +34,7 @@ class Understanding extends Component {
          <h1>How well are you understanding the content?</h1>
        </header>
 
-       <form>
+       <form className="form">
          <TextField id="standard-basic" label="Understanding" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
          <br/>
          <Button onClick={this.goToSupport}>Next</Button>

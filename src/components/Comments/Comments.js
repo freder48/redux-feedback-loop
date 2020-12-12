@@ -6,9 +6,7 @@ import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
   state = {
-    feedback: {
-      comments: ''
-    }
+   comments: ''
   }
 
   goToReview = () => {
@@ -30,7 +28,7 @@ class Comments extends Component {
          <h1>What comments do you have?</h1>
        </header>
 
-       <form>
+       <form className="form">
          <TextField id="standard-basic" label="Comments" onChange={(event) => this.handleChange(event)} type="text" />
          <br/>
          <Button onClick={this.goToReview}>Next</Button>

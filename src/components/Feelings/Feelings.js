@@ -7,15 +7,20 @@ import Button from '@material-ui/core/Button';
 class Feelings extends Component {
 
   state = {
-    feedback: {
-      feelings: ''
-    }
+    feelings: '',
     
   }
 
   goToUnderstanding = () => {
-    this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.feelings} ) 
-    this.props.history.push('/understanding')
+   
+    if (this.state.feelings === ''){
+      alert('Please enter a number between 1-5');
+      return 'No feelings entered';
+    } else {
+      this.props.dispatch( { type: 'GET_FEEDBACK', payload: this.state.feelings} ) 
+      this.props.history.push('/understanding')
+    }
+   
   }
 
   handleChange = (event) => {
@@ -33,7 +38,7 @@ class Feelings extends Component {
          <h1>How are you feeling today?</h1>
        </header>
 
-       <form>
+       <form className="form">
          <TextField id="standard-basic" label="Feeling?" onChange={(event) => this.handleChange(event)} type="number" min="1" max="5" required/>
 
          <br/>

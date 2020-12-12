@@ -22,8 +22,12 @@ class Review extends Component {
       }).catch( ( err ) =>{
         console.log( err );
       }) //end axios
-    this.props.history.push('/submitted');
+
+       this.props.history.push('/submitted');
+
+
   }
+
 
   render() {
     const feedback = this.props.reduxState.feedbackReducer;
