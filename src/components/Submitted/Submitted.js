@@ -11,11 +11,11 @@ import Typography from '@material-ui/core/Typography';
 
 
 class Submitted extends Component {
-
+  //start goToStart
   goToStart = () => {
     this.props.dispatch({ type: 'RESET_FEEDBACK', payload: this.state })
     this.props.history.push('/')
-  }
+  }//end goToStart
 
   render() {
     return (
@@ -45,7 +45,7 @@ class Submitted extends Component {
         </CardActions>
       </Card>
     );
-  }
-}
+  } //end render
+}//end class
 
 export default withRouter(connect()(Submitted));

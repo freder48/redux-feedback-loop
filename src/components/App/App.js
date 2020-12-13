@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { HashRouter as Router, Route,} from 'react-router-dom'; 
+import { HashRouter as Router, Route, } from 'react-router-dom';
 import Feelings from '../Feelings/Feelings';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
@@ -13,7 +13,6 @@ import Admin from '../Admin/Admin';
 
 class App extends Component {
 
-
   render() {
     return (
       <div className="App">
@@ -23,8 +22,7 @@ class App extends Component {
         </header>
 
         <Router>
-          
-          
+
           <Route exact path='/' component={Home}></Route>
           <Route path="/feelings" component={Feelings}></Route>
           <Route path="/understanding" component={Understanding}></Route>
@@ -33,12 +31,12 @@ class App extends Component {
           <Route path="/review" component={Review}></Route>
           <Route path="/submitted" component={Submitted}></Route>
           <Route path="/admin">
-          <Admin/>   
+            <Admin />
           </Route>
 
         </Router>
 
-        <br/>
+        <br />
       </div>
     );
   }

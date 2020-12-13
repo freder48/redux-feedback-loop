@@ -29,7 +29,7 @@ class Home extends Component {
 
           </CardActionArea>
           <CardActions>
-            <Link to='/feelings'className="centerBtn startFeedback">Start Feedback</Link>
+            <Link to='/feelings' className="centerBtn startFeedback">Start Feedback</Link>
           </CardActions>
         </Card>
       </div>

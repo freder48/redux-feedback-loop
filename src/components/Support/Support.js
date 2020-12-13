@@ -51,12 +51,12 @@ class Support extends Component {
             />
 
             <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-               How well are you understanding the content?
+              <Typography gutterBottom variant="h5" component="h2">
+                How well are you understanding the content?
             </Typography>
 
-              <TextField className="inputSize" id="standard-basic" label="Supported" onChange={(event) => this.handleChange(event)} 
-              type="number" inputProps={{ min: "1", max: "5"}} required />
+              <TextField className="inputSize" id="standard-basic" label="Supported" onChange={(event) => this.handleChange(event)}
+                type="number" inputProps={{ min: "1", max: "5" }} required />
 
             </CardContent>
 

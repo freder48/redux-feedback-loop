@@ -15,13 +15,14 @@ class Admin extends Component {
     feedbackHistory: []
   }
 
-componentDidMount() {
+  //componentDidMount
+  componentDidMount() {
     console.log('admin order mounted');
     this.getFeedback()
-}
+  }//end componentDidMount
 
-//GET route
- getFeedback = () => {
+  //GET route
+  getFeedback = () => {
     axios.get('/feedback')
       .then((response) => {
         this.setState({
@@ -33,20 +34,21 @@ componentDidMount() {
         console.log(err);
         alert('problem with GET');
       })
-  }
+  }//end get
 
   //DELETE route
   deleteFeedback = (id) => {
-    axios.delete(`/feedback/${id}`)
-      .then(response => {
-        this.getFeedback();
-      })
-      .catch(error => {
-        console.log(`Error removing feedback`, error);
-        alert(`Could not remove feedback at this time. Please try again later.`);
-      })
-  }
-
+    if (window.confirm('Are you sure you want to delete this record from the database?')) {
+      axios.delete(`/feedback/${id}`)
+        .then(response => {
+          this.getFeedback();
+        })
+        .catch(error => {
+          console.log(`Error removing feedback`, error);
+          alert(`Could not remove feedback at this time. Please try again later.`);
+        })
+    }
+  }//end delete route
 
   render() {
     return (
@@ -67,13 +69,12 @@ componentDidMount() {
               {
                 this.state.feedbackHistory.map((feedback) =>
                   <TableRow key={feedback.id}>
-                    <TableCell>{feedback.id}</TableCell>
                     <TableCell>{feedback.feeling}</TableCell>
                     <TableCell>{feedback.understanding}</TableCell>
                     <TableCell>{feedback.support}</TableCell>
                     <TableCell>{feedback.comments}</TableCell>
                     <TableCell><Button variant="outlined">
-                    <DeleteIcon onClick={()=> this.deleteFeedback(feedback.id)}/>
+                      <DeleteIcon onClick={() => this.deleteFeedback(feedback.id)} />
                     </Button>
                     </TableCell>
 

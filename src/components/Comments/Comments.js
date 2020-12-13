@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
-import { connect } from 'react-redux'; 
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -12,11 +12,11 @@ import Typography from '@material-ui/core/Typography';
 
 class Comments extends Component {
   state = {
-   comments: ''
+    comments: ''
   }
 
   goToReview = () => {
-    this.props.dispatch( { type: 'GET_COMMENTS', payload: this.state.comments} ) 
+    this.props.dispatch({ type: 'GET_COMMENTS', payload: this.state.comments })
     this.props.history.push('/review');
   }
 
@@ -34,7 +34,7 @@ class Comments extends Component {
   render() {
     return (
       <div className="comments">
-       <Card className="cardSize">
+        <Card className="cardSize">
           <CardActionArea>
             <CardMedia
               component="img"
@@ -49,7 +49,7 @@ class Comments extends Component {
                 What comments do you have?
             </Typography>
 
-            <TextField id="standard-basic" label="Comments" onChange={(event) => this.handleChange(event)} type="text" />
+              <TextField id="standard-basic" label="Comments" onChange={(event) => this.handleChange(event)} type="text" />
 
             </CardContent>
 
