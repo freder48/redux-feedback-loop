@@ -15,20 +15,27 @@ class Comments extends Component {
     comments: ''
   }
 
+  //start goToReview
   goToReview = () => {
+    //disallow empty/out of range inputs
     this.props.dispatch({ type: 'GET_COMMENTS', payload: this.state.comments })
+    //dispatch state to store and then routing to review
     this.props.history.push('/review');
-  }
+  }//end goToReview
 
+  //end handleChange
+  //set local state from input box
   handleChange = (event) => {
     this.setState({
       comments: event.target.value
     })
-  }
+  }//end handleChange
 
+  //start goBackToSupport
+  //route back to support page to edit
   goBackToSupport = () => {
     this.props.history.push('/support');
-  }
+  }//end goBackToSupport
 
 
   render() {

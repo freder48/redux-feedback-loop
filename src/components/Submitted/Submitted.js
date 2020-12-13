@@ -13,7 +13,9 @@ import Typography from '@material-ui/core/Typography';
 class Submitted extends Component {
   //start goToStart
   goToStart = () => {
+    //dispatch to reduxStore to clear reducer values to empty
     this.props.dispatch({ type: 'RESET_FEEDBACK', payload: this.state })
+    //route to home page
     this.props.history.push('/')
   }//end goToStart
 

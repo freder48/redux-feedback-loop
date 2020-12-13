@@ -17,25 +17,32 @@ class Support extends Component {
     support: '',
   }
 
+  //start gotocomments
   goToComments = () => {
+     //disallow empty/out of range inputs
     if (this.state.support === '' || (this.state.support < 1 || this.state.support > 5)) {
       alert('Please enter a number between 1-5');
       return 'No support entered';
     } else {
+      //dispatch state to store and then routing to comments
       this.props.dispatch({ type: 'GET_SUPPORT', payload: this.state.support })
       this.props.history.push('/comments');
     }
-  }
+  }//end goToComments
 
+  //start handleChange
+  //set local state with info from input
   handleChange = (event) => {
     this.setState({
       support: event.target.value
     })
-  }
+  }//end handleChange
 
+  //start goBackToUnderstanding
+  //back button to return to understanding and edit
   goBackToUnderstanding = () => {
     this.props.history.push('/understanding');
-  }
+  }//end goBackToUnderstanding
 
   render() {
     return (
@@ -52,7 +59,7 @@ class Support extends Component {
 
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                How well are you understanding the content?
+                How supported do you feel?
             </Typography>
 
               <TextField className="inputSize" id="standard-basic" label="Supported" onChange={(event) => this.handleChange(event)}

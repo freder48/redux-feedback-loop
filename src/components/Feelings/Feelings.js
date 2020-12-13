@@ -12,32 +12,35 @@ import Typography from '@material-ui/core/Typography';
 
 
 class Feelings extends Component {
-
+//local state to store feelings rating
   state = {
     feelings: '',
 
   }
 
+  // start goToUnderstanding
   goToUnderstanding = () => {
-
+    //disallow empty/out of range inputs
     if (this.state.feelings === '' || this.state.feelings < 1 || this.state.feelings > 5) {
       alert('Please enter a number between 1-5');
       return 'No feelings entered';
     } else {
+      //dispatch state to store and then routing to understanding
       this.props.dispatch({ type: 'GET_FEELINGS', payload: this.state.feelings })
       this.props.history.push('/understanding')
     }
-  }
+  }//end goToUnderstanding
 
+  //start handleChange
+  //set local state with input value
   handleChange = (event) => {
     this.setState({
       feelings: event.target.value
     })
-  }
+  }//end handleChange
 
 
   render() {
-
     return (
       <div>
         <Card className="cardSize">
@@ -76,5 +79,5 @@ class Feelings extends Component {
 }
 
 
-
+//connect is needed to dispatch to reduxStore, withRouter sends *enhanced* version of Feelings
 export default connect()(withRouter(Feelings));

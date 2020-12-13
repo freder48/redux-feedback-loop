@@ -18,13 +18,16 @@ class Admin extends Component {
   //componentDidMount
   componentDidMount() {
     console.log('admin order mounted');
+    //call getFeedback right away to get prior values to display on table
     this.getFeedback()
   }//end componentDidMount
 
   //GET route
   getFeedback = () => {
     axios.get('/feedback')
+      //response is all info from database based on query
       .then((response) => {
+        //set local state to response from database
         this.setState({
           feedbackHistory: response.data
         })
@@ -38,9 +41,12 @@ class Admin extends Component {
 
   //DELETE route
   deleteFeedback = (id) => {
+    //confirmation window before deleting
     if (window.confirm('Are you sure you want to delete this record from the database?')) {
+      //route to server to delete by this parameter 
       axios.delete(`/feedback/${id}`)
         .then(response => {
+          //call getFeedback again to refresh values on DOM
           this.getFeedback();
         })
         .catch(error => {
@@ -77,8 +83,6 @@ class Admin extends Component {
                       <DeleteIcon onClick={() => this.deleteFeedback(feedback.id)} />
                     </Button>
                     </TableCell>
-
-
                   </TableRow>
                 )
               }

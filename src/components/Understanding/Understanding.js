@@ -12,31 +12,35 @@ import Typography from '@material-ui/core/Typography';
 import '../App/App.css'
 
 class Understanding extends Component {
-
+  //set local state
   state = {
     understanding: ''
   }
 
+  //start goToSupport
   goToSupport = () => {
+    //disallow empty/out of range inputs
     if (this.state.understanding === '' || this.state.understanding < 1 || this.state.understanding > 5) {
       alert('Please enter a number between 1-5');
       return 'No understandings entered';
     } else {
+      //dispatch state to store and then routing to support
       this.props.dispatch({ type: 'GET_UNDERSTANDING', payload: this.state.understanding })
       this.props.history.push('/support');
     }
-  }
+  } //end goToSupport
 
+  //start handleChange, set local state from input boxes
   handleChange = (event) => {
     this.setState({
       understanding: event.target.value
     })
-  }
+  }//end handleChange
 
+  //start goBackToFeelings, back button to route back to feelings page
   goBackToFeelings = () => {
     this.props.history.push('/feelings');
-
-  }
+  }//end goBackToFeelings
 
 
   render() {

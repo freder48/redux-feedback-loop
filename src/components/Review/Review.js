@@ -11,30 +11,31 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 class Review extends Component {
-
+//set local state using info from redux stores
   state = {
     feeling: this.props.reduxState.feelingsReducer,
     understanding: this.props.reduxState.understandingReducer,
     support: this.props.reduxState.supportReducer,
     comments: this.props.reduxState.commentsReducer,
-  }
+  }//end state
 
+  //start POST
   goToSubmitted = () => {
     console.log(`Adding feedback`, this.state);
+    //send this.state to server to store in database
     axios.post('/feedback', this.state).then((response) => {
-      console.log('back from POST:', response.data);
+      console.log('back from POST:', response.data); //getting the okay
     }).catch((err) => {
       console.log(err);
     }) //end axios
-
+    //go to submitted on button click
     this.props.history.push('/submitted');
-
-  }
+  } //end goToSubmitted
 
 
   render() {
     const feedback = this.props.reduxState
-    console.log(this.props.reduxState);
+    // console.log(this.props.reduxState);
 
     return (
       <div className="Review">
@@ -51,7 +52,7 @@ class Review extends Component {
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
                 Review Your Feedback
-  </Typography>
+              </Typography>
               <p>Feelings: {feedback.feelingsReducer}</p>
               <p>Understanding: {feedback.understandingReducer}</p>
               <p>Support: {feedback.supportReducer}</p>
@@ -64,21 +65,20 @@ class Review extends Component {
 
             <Button size="small" color="primary" onClick={this.goToSubmitted}>
               Submit
- </Button>
+            </Button>
           </CardActions>
         </Card>
 
       </div>
     );
-  }
-}
+  }//end render
+} //end class
 
-
+//We need to pass a method so we can state what values from the store to put on props
 const putReduxStateOnProps = (reduxState) => ({
   reduxState
 })
 
-//export
-
+//Pass in the method, to put redux state on props
 export default withRouter(connect(putReduxStateOnProps)(Review));
 
