@@ -29,7 +29,7 @@ Created a feedback form for users and admin. Feedback is collected over four vie
 
 1. Create a database named `prime_feedback`,
 2. The queries in the `tables.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
-3. Open up your editor of choice and run an `npm install` `npm install redux react-redux` `npm install @material-ui/core` `npm install @material-ui/icons` `npm install redux-logger` `npm install react-router-dom`
+3. Open up your editor of choice and run an `npm install`
 
 4. Run `npm run server` in your terminal
 5. Run `npm run client` in your terminal
